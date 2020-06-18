@@ -1,0 +1,18 @@
+<package>
+  <name>nao_meshes</name>
+  <version>0.1.11</version>
+  <description>meshes for the Aldebaran Robotics NAO</description>
+  <author email="vincent.rabaud@gmail.com">Vincent Rabaud</author>
+  <author email="mikael.arguedas@gmail.com">Mikael Arguedas</author>
+
+  <maintainer email="surya.ambrose@gmail.com">Surya Ambrose</maintainer>
+  <maintainer email="natalia.lyubova@gmail.com">Natalia Lyubova</maintainer>
+
+  <license>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License</license>
+
+  <url>http://github.com/ros-naoqi/nao_meshes/</url>
+
+  <build_depend>java</build_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

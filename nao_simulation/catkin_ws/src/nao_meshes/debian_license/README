@@ -1,0 +1,2 @@
+The ``preinst`` and ``templates`` files should be used to patch a bloomed ROS package to include
+a prompt that will ask to confirm a license file

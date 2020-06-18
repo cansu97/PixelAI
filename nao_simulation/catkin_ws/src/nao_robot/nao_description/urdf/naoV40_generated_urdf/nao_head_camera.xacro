@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<robot name="NaoH25V40" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<link name="CameraTop_frame"/>
+	<joint name="CameraTop_sensor_fixedjoint" type="fixed">
+		<parent link="Head"/>
+		<child link="CameraTop_frame"/>
+		<origin rpy="0 0.0209435 0" xyz="0.05871 0 0.06364"/>
+		<axis xyz="0 0 0"/>
+	</joint>
+	<link name="CameraTop_optical_frame"/>
+	<joint name="CameraTop_optical_frame_fixedjoint" type="fixed">
+		<parent link="CameraTop_frame"/>
+		<child link="CameraTop_optical_frame"/>
+		<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	</joint>
+	<link name="CameraBottom_optical_frame"/>
+	<joint name="CameraBottom_optical_frame_fixedjoint" type="fixed">
+		<parent link="CameraBottom_frame"/>
+		<child link="CameraBottom_optical_frame"/>
+		<origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0"/>
+	</joint>
+	<link name="CameraBottom_frame"/>
+	<joint name="CameraBottom_sensor_fixedjoint" type="fixed">
+		<parent link="Head"/>
+		<child link="CameraBottom_frame"/>
+		<origin rpy="0 0.692896 0" xyz="0.05071 0 0.01774"/>
+		<axis xyz="0 0 0"/>
+	</joint>
+</robot>

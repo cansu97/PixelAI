@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load the URDF Model -->
+  <include file="$(find nao_description)/launch/upload_nao.launch">
+    <arg name="version" value="$(arg nao_version)" />
+    <arg name="contact_torso" value="$(arg contact_torso)" />
+    <arg name="contact_head" value="$(arg contact_head)" />
+    <arg name="contact_left_arm" value="$(arg contact_left_arm)" />
+    <arg name="contact_right_arm" value="$(arg contact_right_arm)" />
+  </include>  
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true" />
+  </include>
+
+  <!-- Use PIDs?? -->
+  <arg name="use_pid" value="true"/>
+  <group if="$(arg use_pid)">
+    <rosparam file="$(find nao_gazebo_plugin)/config/gazebo_ros_control_params.yaml" command="load" />
+  </group>
+
+  <!-- Call Nao Robot Trajectory Controller -->
+  <!--include file="$(find nao_control)/launch/nao_control_trajectory.launch" /-->
+
+  <!-- Call Nao Robot Position Controller -->
+  <include unless="$(arg disable_controller)" file="$(find nao_control)/launch/nao_control_position_skin.launch" />
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 0 -y 0 -z 0.335 -model nao_skin" />
+
+  <!-- Launch RQT -->
+  <!--node name="rqt_ez_publisher" pkg="rqt_ez_publisher" type="rqt_ez_publisher" args="- -slider-file ~/code-nao-simulation/gazebo9/misc/rqt_ez_publisher.yaml" >
+  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui"-->
+</launch>
