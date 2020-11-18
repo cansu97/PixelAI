@@ -1,5 +1,5 @@
 # PixelAI
-End-to-End Pixel-Based Deep Active Inference for Body Perception and Action
+End-to-End Pixel-Based Deep Active Inference for Body Perception and Action. Published in IEEE International conference on Developmental Learning and Epigenetic Robotics 2020. Paper: https://arxiv.org/abs/2001.05847
 
 This repository includes code for performing active inference with a simulated NAO robot in Gazebo and offline perceptual inference tests.
 
